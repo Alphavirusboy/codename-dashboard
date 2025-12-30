@@ -8,7 +8,6 @@
  * - Smooth animations with Intersection Observer
  * - Responsive sidebar handling
  * - Keyboard navigation support
- * - Design overlay comparison tool
  */
 
 'use strict';
@@ -47,7 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeCharts();
     initializeInteractions();
     initializeAnimations();
-    initCompareOverlay();
     initMobileMenu();
     initAccessibility();
     
@@ -1003,77 +1001,3 @@ document.head.appendChild(additionalStyles);
 // ============================================
 
 console.log('🚀 Codename Dashboard initialized successfully!');
-
-// ============================================
-// DESIGN OVERLAY COMPARE TOOL
-// ============================================
-
-function initCompareOverlay(){
-    const toggle = document.getElementById('compareToggle');
-    const panel = document.getElementById('comparePanel');
-    const closeBtn = document.getElementById('compareClose');
-    const input = document.getElementById('overlayInput');
-    const opacity = document.getElementById('overlayOpacity');
-    const overlay = document.getElementById('designOverlay');
-    const fit = document.getElementById('overlayFit');
-    const fill = document.getElementById('overlayFill');
-    const center = document.getElementById('overlayCenter');
-
-    if(!toggle || !panel || !overlay) return;
-
-    const appShell = document.getElementById('appShell');
-    if(appShell){
-        // Position overlay over the app container area
-        const updateOverlayBounds = () => {
-            const rect = appShell.getBoundingClientRect();
-            overlay.style.left = rect.left + 'px';
-            overlay.style.top = rect.top + 'px';
-            overlay.style.width = rect.width + 'px';
-            overlay.style.height = rect.height + 'px';
-        };
-        const onScrollOrResize = throttle(updateOverlayBounds, 100);
-        window.addEventListener('resize', onScrollOrResize);
-        window.addEventListener('scroll', onScrollOrResize);
-        updateOverlayBounds();
-    }
-
-    toggle.addEventListener('click', ()=>{
-        const open = !panel.classList.contains('open');
-        panel.classList.toggle('open', open);
-        toggle.setAttribute('aria-expanded', String(open));
-        if(open) overlay.style.display = overlay.src ? 'block' : 'none';
-    });
-
-    closeBtn && closeBtn.addEventListener('click', ()=>{
-        panel.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-    });
-
-    // Load image from file
-    input && input.addEventListener('change', (e)=>{
-        const file = e.target.files && e.target.files[0];
-        if(!file) return;
-        const reader = new FileReader();
-        reader.onload = ev => {
-            overlay.src = ev.target.result;
-            overlay.style.display = 'block';
-        };
-        reader.readAsDataURL(file);
-    });
-
-    // Opacity control
-    opacity && opacity.addEventListener('input', ()=>{
-        overlay.style.opacity = (Number(opacity.value)/100).toString();
-    });
-
-    fit && fit.addEventListener('click', ()=>{
-        overlay.style.objectFit = 'contain';
-    });
-    fill && fill.addEventListener('click', ()=>{
-        overlay.style.objectFit = 'cover';
-    });
-    center && center.addEventListener('click', ()=>{
-        overlay.style.objectFit = 'none';
-        overlay.style.objectPosition = 'center';
-    });
-}

@@ -1,82 +1,97 @@
 # Codename Dashboard
 
-A modern sales dashboard I built from scratch using HTML, CSS, and JavaScript.
+A modern sales analytics dashboard I built to practice my frontend skills.
 
-**[🔗 Live Demo](https://YOUR_USERNAME.github.io/codename-dashboard/)** | **[📂 GitHub Repo](https://github.com/YOUR_USERNAME/codename-dashboard)**
+**[🔗 Live Demo](https://alphavirusboy.github.io/codename-dashboard/)** | **[📂 GitHub Repo](https://github.com/Alphavirusboy/codename-dashboard)**
 
 ![Dashboard Preview](./dashboard.png)
 
-## About This Project
+## About
 
-I built this dashboard as part of a frontend assignment. The goal was to recreate a given design as pixel-perfect as possible while keeping the code clean and well-organized.
+Started this project to challenge myself with creating a complex dashboard layout. Took me a few evenings to get everything looking right, but I'm happy with how it turned out.
 
-Spent quite a bit of time getting the spacing and colors just right - those small details really matter! The hardest part was probably getting the responsive layout to work smoothly across different screen sizes without breaking the design.
+The trickiest part was definitely the responsive behavior - making sure everything looks good on mobile without losing functionality. Also spent way too much time tweaking the chart animations to feel smooth.
 
-## What I Built
+## Features
 
-- **Sidebar Navigation** - Collapsible menu with nested items
-- **Stats Cards** - Revenue, deals, win rates with real data visualization
-- **Interactive Charts** - Used Chart.js for the bar charts and pie charts
-- **Performance Bars** - Custom progress bars showing team performance
-- **Platform Breakdown** - Visual breakdown of sales by platform (Dribbble, Instagram, etc.)
-- **User Stats Table** - Sortable rows with badges and indicators
-- **Mobile Menu** - Hamburger menu that slides in on smaller screens
+- **Clean Layout** - Sidebar navigation with a utility rail for quick actions
+- **Revenue Cards** - Big numbers, comparison data, progress indicators
+- **Performance Stats** - Cards showing top sales, deals, win rates
+- **Interactive Charts** - Bar and pie charts using Chart.js
+- **Platform Analytics** - Progress bars showing distribution across web/mobile/desktop
+- **User Table** - Stats for each team member with sortable columns
+- **Responsive** - Works on desktop, tablet, and mobile
 
-## Tech Stack
+## Tech Used
 
-Just vanilla web technologies - no frameworks:
+Kept it simple with vanilla web tech:
 
-- **HTML5** - Semantic markup
-- **CSS3** - Flexbox, Grid, custom properties (CSS variables)
-- **JavaScript** - ES6+, Chart.js for graphs
-- **Phosphor Icons** - For all the icons
-- **Google Fonts** - Inter font family
+- HTML5 for structure
+- CSS3 (Flexbox + Grid for layouts)
+- JavaScript (ES6+)
+- Chart.js for the graphs
+- Phosphor Icons
+- Inter font from Google Fonts
 
-## How I Organized the Code
+No build tools or frameworks - just wanted to focus on the fundamentals.
 
-\`\`\`
-├── index.html          # Main page structure
+## Project Structure
+
+```
+├── index.html          # Main page
 ├── css/
-│   ├── styles.css      # Main styles + responsive
-│   └── components.css  # Animations and effects
+│   ├── styles.css      # All the styles
+│   └── components.css  # Extra component styles
 ├── js/
-│   └── main.js         # Charts + interactions
-└── README.md
-\`\`\`
+│   └── main.js         # Charts and interactions
+└── dashboard.png       # Design reference
+```
 
-I kept the CSS organized with variables at the top for colors, spacing, etc. Makes it easy to tweak the theme if needed.
+## Running It
 
-## Responsive Design
+Clone the repo and open `index.html` in your browser. That's it!
 
-Tested on:
-- Desktop (1280px and above) ✓
-- Tablet (768px - 1024px) ✓  
-- Mobile (below 768px) ✓
+If you want a local server:
 
-On mobile, the sidebar becomes a slide-out menu with a hamburger button. Cards stack vertically and some elements hide to keep things clean.
+```bash
+# Python
+python3 -m http.server 8000
 
-## Running Locally
-
-Just open \`index.html\` in your browser, or if you want a proper server:
-
-\`\`\`bash
-# Using Python
-python -m http.server 8000
-
-# Using Node
+# Node
 npx serve
-\`\`\`
+```
 
-Then go to \`http://localhost:8000\`
+Then visit `http://localhost:8000`
 
-## Things I Learned
+## Responsive Breakpoints
 
-- CSS Grid is amazing for dashboard layouts
-- Chart.js customization takes some trial and error
-- Getting pixel-perfect spacing requires a lot of back-and-forth
-- CSS custom properties make theming so much easier
+- **Desktop**: 1280px and up (full layout)
+- **Tablet**: 768px - 1279px (adjusted spacing)
+- **Mobile**: Below 768px (hamburger menu, stacked cards)
 
+The sidebar collapses into a slide-out menu on mobile, and some less critical info gets hidden to keep things readable.
+
+## What I Learned
+
+Working on this taught me a lot about:
+- Using CSS Grid effectively for complex layouts
+- Chart.js customization (there's a lot you can tweak!)
+- Making responsive designs that actually work, not just "look okay"
+- Keeping vanilla JS organized without a framework
+
+The spacing was probably the most time-consuming part - getting everything to feel balanced took a lot of adjusting.
+
+## Future Ideas
+
+Might add:
+- Dark mode toggle
+- More chart types
+- Filters for the data
+- Export functionality
+- Better animations
+
+For now though, it does what I wanted it to do.
 
 ---
 
-Made by Parth Patil
+**Parth Patil** • 2025
